@@ -1,0 +1,59 @@
+# ── Large data files ────────────────────────────────────────────────────────
+*.xlsx
+*.xls
+*.csv
+
+# ── Compiled paper and reference PDFs ───────────────────────────────────────
+main.pdf
+*.pdf
+*.tex
+
+# ── Generated figures (reproducible from scripts) ───────────────────────────
+topic_analysis_figures_keybert/
+topic_analysis_figures_keybert_v2/
+topic_analysis_figures_keybert_v3/
+topic_analysis_figures_keybert_v4/
+topic_analysis_figures_vocabulary/
+topic_analysis_figures_vocabulary_v2/
+topic_analysis_figures_v3/
+topic_analysis_figures_v4/
+topic_analysis_figures_v5/
+topic_analysis_figures_v6/
+topic_analysis_figures_v7/
+topic_analysis_figures_v8/
+topic_analysis_figures_v9/
+paper_figures/
+
+# Keep the final figure set used in the paper (committed as a release artefact)
+# topic_analysis_figures_keybert_v5/   <-- intentionally NOT ignored
+
+# ── Python cache ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── OS / editor artefacts ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# ── Scratch / temp files ──────────────────────────────────────────────────────
+"New Text Document (2).txt"
+Feedback-Rasul.pdf
+"COPPPPPPY (3).pdf"
+"ICML2025_Template_for_Paper (1).pdf"
+1-s2.0-S0957417423006164-main.pdf
+regen_figB.py
+PROMPT_conference_review_paper.md

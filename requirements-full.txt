@@ -1,0 +1,6 @@
+# Full install: core + KeyBERT + word clouds (includes PyTorch via sentence-transformers)
+-r requirements.txt
+
+keybert>=0.8
+sentence-transformers>=2.2
+wordcloud>=1.9

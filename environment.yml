@@ -1,0 +1,22 @@
+# Conda environment for ML conference papers (ACL, CVPR, ICLR, ICML, NeurIPS)
+# Create: conda env create -f environment.yml
+# Activate: conda activate ml-conference-papers
+
+name: ml-conference-papers
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.13
+  - pandas
+  - matplotlib
+  - seaborn
+  - openpyxl
+  - requests
+  - beautifulsoup4
+  - pip
+  - pip:
+      - openreview-py>=2.0
+      # Uncomment for KeyBERT + word clouds (adds PyTorch; large):
+      # - keybert>=0.8
+      # - sentence-transformers>=2.2
+      # - wordcloud>=1.9
