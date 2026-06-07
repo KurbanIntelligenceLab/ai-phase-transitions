@@ -9,7 +9,6 @@ main.pdf
 *.tex
 
 # ── Generated figures (reproducible from scripts) ───────────────────────────
-topic_analysis_figures_keybert/
 topic_analysis_figures_keybert_v2/
 topic_analysis_figures_keybert_v3/
 topic_analysis_figures_keybert_v4/
