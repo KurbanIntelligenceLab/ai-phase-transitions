@@ -1,7 +1,7 @@
 # Topical Phase Transitions in AI Research
 ### Large-Scale Evidence and an Early-Warning Signature for Emerging Topics
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20468041.svg)](https://doi.org/10.5281/zenodo.20468041)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20509627.svg)](https://doi.org/10.5281/zenodo.20509627)
 
 > **Paper submitted to:** *Quantitative Science Studies (QSS)*  
 > **Title:** "Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics"
@@ -25,9 +25,6 @@ This repository contains all code, scripts, and figures supporting the paper. Th
 
 ```
 paper/
-│
-├── main.tex                          # Paper source (LaTeX, elsarticle format)
-├── paper_draft.tex                   # Archived earlier draft
 │
 ├── ── Data collection ──
 ├── fetch_icml_pmlr_only.py           # Scrape ICML papers from PMLR proceedings
@@ -56,7 +53,6 @@ paper/
 ├── sample_check.py                   # Spot-check random rows in the dataset
 ├── inspect_excels.py                 # Quick inspection of Excel file schemas
 ├── verify_output.py                  # Verify figure output completeness
-├── regen_figB.py                     # Regenerate figure B (architecture diagram)
 │
 ├── ── Validation ──
 ├── backtest_signature.py             # Out-of-sample backtest of the pre-explosion
@@ -70,7 +66,7 @@ paper/
 ├── requirements-full.txt             # pip dependencies (full: KeyBERT + PyTorch)
 │
 ├── ── Figures (final, committed) ──
-├── topic_analysis_figures_keybert_v5/  # All figures used in the paper (PDF + PNG)
+├── topic_analysis_figures_keybert/  # All figures used in the paper (PDF + PNG)
 │   ├── 05_top10_topics_per_conference.{png,pdf}
 │   ├── 06_heatmap_topics_over_years.{png,pdf}
 │   ├── 07_line_top5_topics_over_years.{png,pdf}
@@ -82,15 +78,13 @@ paper/
 │   ├── 15_rl_over_years_all.{png,pdf}
 │   └── verified_topic_counts_by_year.csv  (audit trail)
 │
-├── paper_figures/                    # Additional figures (A–D): word clouds,
-│                                     #   mindmap, keyphrases, topic distribution
 │
 ├── architecture.png                  # System architecture diagram (Fig. in paper)
 │
 └── PROMPT_conference_review_paper.md # Prompt template for AI-assisted drafting
 ```
 
-> **Data files** (`.xlsx`, `.csv`) are excluded from Git via `.gitignore` due to size (total ~500 MB). The canonical dataset is archived at Zenodo: [doi:10.5281/zenodo.20468041](https://doi.org/10.5281/zenodo.20468041).
+> **Data files** (`.xlsx`, `.csv`) are excluded from Git via `.gitignore` due to size (total ~500 MB). The canonical dataset is archived at Zenodo: [doi:10.5281/zenodo.20509627](https://doi.org/10.5281/zenodo.20509627).
 
 ---
 
@@ -103,7 +97,7 @@ paper/
 | Years | 2017–2025 |
 | Keyword method | KeyBERT (`all-MiniLM-L6-v2`), MMR diversity=0.7, n-gram (1,3), top-12 terms |
 | Source | Official proceedings (ACL Anthology, CVF, PMLR, OpenReview, NeurIPS.cc) |
-| Zenodo archive | [doi:10.5281/zenodo.20468041](https://doi.org/10.5281/zenodo.20468041) |
+| Zenodo archive | [doi:10.5281/zenodo.20509627](https://doi.org/10.5281/zenodo.20509627) |
 
 **Venue breakdown (2025):**
 
@@ -192,7 +186,7 @@ pip install -r requirements-full.txt
 Download `merged_papers_keywords_keybert.xlsx` from the Zenodo archive:
 
 ```
-https://doi.org/10.5281/zenodo.20468041
+https://doi.org/10.5281/zenodo.20509627
 ```
 
 Place it in the project root (`paper/`). This is the fully merged and KeyBERT-annotated dataset (84,091 rows).
@@ -245,60 +239,6 @@ Reads `topic_year_venue_counts.csv` (also on Zenodo). Prints the confusion matri
 
 **Do not change the threshold constants** in `backtest_signature.py` to improve results — those are the pre-committed values stated in the paper. Changing them reintroduces leakage and invalidates the out-of-sample claim.
 
-### Step 5 — Compile the paper
-
-The paper uses the `elsarticle` LaTeX class (QSS house style):
-
-```bash
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-```
-
-Or use your preferred LaTeX IDE (Overleaf, TeXstudio, VS Code + LaTeX Workshop).
-
----
-
-## Figures in the paper
-
-| Figure | File | Description |
-|---|---|---|
-| Fig. 1 | `paper_figures/A_*.png` | Word cloud grid of top topics per venue |
-| Fig. 2 | `paper_figures/B_*.png` | Research subfield mindmap |
-| Fig. 3 | `paper_figures/C_*.png` | Topic distribution overview |
-| Fig. 4 | `paper_figures/D_*.png` | Keyphrases summary |
-| Fig. 5 | `topic_analysis_figures_keybert_v5/05_top10_topics_per_conference.pdf` | Top-10 topics per venue (horizontal bar) |
-| Fig. 6 | TikZ in `main.tex` | ACL: LLM vs NMT vs NER counts |
-| Fig. 7 | `topic_analysis_figures_keybert_v5/07_line_top5_topics_over_years.pdf` | Top-5 topics over time (all venues) |
-| Fig. 8 | `architecture.png` | System architecture / pipeline |
-| Fig. 9 | TikZ in `main.tex` | Popularity scoring diagram |
-| Fig. 10 | `topic_analysis_figures_keybert_v5/10_exponential_growth_total_and_stacked.pdf` | Total papers per year (stacked by venue) |
-| Fig. 11 | `topic_analysis_figures_keybert_v5/11_top25_per_venue_*.pdf` | Top-25 topics per venue |
-| Fig. 12 | `topic_analysis_figures_keybert_v5/12_llm_revolution_over_years.pdf` | LLM-related topics over years |
-| Fig. 13 | TikZ in `main.tex` | Pre-explosion signature schematic |
-| Fig. 14 | `topic_analysis_figures_keybert_v5/14_diffusion_rise_over_years.pdf` | Diffusion models over years |
-| Fig. 15 | `topic_analysis_figures_keybert_v5/15_rl_over_years_all.pdf` | Reinforcement learning over years |
-
----
-
-## QSS submission compliance
-
-The paper satisfies all Quantitative Science Studies requirements:
-
-| Requirement | Status |
-|---|---|
-| Abstract ≤ 200 words | 129 words |
-| Keywords ≤ 6 | 6 |
-| Line numbering enabled | Yes (`\linenumbers`) |
-| Data availability + Zenodo DOI | Yes |
-| CRediT author contributions | Yes |
-| Competing interests statement | Yes |
-| Author-year citation style | Yes (`\citep`, `\citet`) |
-| Body word count 5,000–10,000 | ~7,534 |
-| Methods before Results | Yes |
-| No colored table cells | Yes |
-
 ---
 
 ## Citation
@@ -306,10 +246,10 @@ The paper satisfies all Quantitative Science Studies requirements:
 If you use this code, dataset, or methodology in published work, please cite:
 
 ```bibtex
-@article{bayov2025topical,
+@article{khanbayov2025topical,
   title   = {Topical Phase Transitions in Artificial Intelligence Research:
              Large-Scale Evidence and an Early-Warning Signature for Emerging Topics},
-  author  = {Bayov, Rasul and others},
+  author  = {Khanbayov, Rasul and Kurban, Hasan},
   journal = {Quantitative Science Studies},
   year    = {2025},
   note    = {Submitted}
@@ -319,13 +259,13 @@ If you use this code, dataset, or methodology in published work, please cite:
 Dataset (Zenodo):
 
 ```bibtex
-@misc{bayov2025dataset,
-  author    = {Bayov, Rasul and others},
+@misc{khanbayov2025dataset,
+  author    = {Khanbayov, Rasul and Kurban, Hasan},
   title     = {AI Conference Papers Dataset (ACL, CVPR, ICLR, ICML, NeurIPS) 2017--2025},
   year      = {2025},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.20468041},
-  url       = {https://doi.org/10.5281/zenodo.20468041}
+  doi       = {10.5281/zenodo.20509627},
+  url       = {https://doi.org/10.5281/zenodo.20509627}
 }
 ```
 
