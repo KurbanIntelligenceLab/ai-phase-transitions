@@ -36,9 +36,10 @@ KEYWORD_STOPLIST = {
     "multi", "single", "large", "small", "new", "using", "used", "different",
     "multiple", "various", "effective", "efficient", "framework", "algorithm", "system",
     "task", "tasks", "semeval", "shared", "workshop", "challenge", "competition",
+    "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025",
 }
 
-# Exclude competition/shared-task phrases (not general topic names)
+# Exclude competition/shared-task phrases and bare year tokens (not general topic names)
 EXCLUDE_PATTERNS = [
     re.compile(r"semeval\s+\d{4}\s+task", re.I),
     re.compile(r"semeval\s+task", re.I),
@@ -46,6 +47,9 @@ EXCLUDE_PATTERNS = [
     # e.g. "2025 task 11", "2023 task 10", "2025 task", "2023 task" (ACL/SemEval task IDs)
     re.compile(r"\d{4}\s+task\s+\d+", re.I),
     re.compile(r"\d{4}\s+task\b", re.I),
+    # any phrase that is just a year or starts/ends with a standalone year
+    re.compile(r"^\s*(201[7-9]|202[0-5])\s*$", re.I),
+    re.compile(r"\b(201[7-9]|202[0-5])\b", re.I),
 ]
 
 _KEYBERT_MODEL = None
