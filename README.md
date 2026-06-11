@@ -1,7 +1,7 @@
 # Topical Phase Transitions in AI Research
 ### Large-Scale Evidence and an Early-Warning Signature for Emerging Topics
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20509627.svg)](https://doi.org/10.5281/zenodo.20509627)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20635335.svg)](https://doi.org/10.5281/zenodo.20635335)
 
 > **Paper submitted to:** *Quantitative Science Studies (QSS)*  
 > **Title:** "Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics"
@@ -71,7 +71,7 @@ paper/
 └── architecture.png                  # System architecture diagram
 ```
 
-> **Data files** (`.xlsx`, `.csv`) are excluded from Git due to size. The canonical dataset is archived at Zenodo: [doi:10.5281/zenodo.20509627](https://doi.org/10.5281/zenodo.20509627).
+> **Data files** (`.xlsx`, `.csv`) are excluded from Git due to size. The canonical dataset is archived at Zenodo: [doi:10.5281/zenodo.20635335](https://doi.org/10.5281/zenodo.20635335).
 
 ---
 
@@ -84,7 +84,7 @@ paper/
 | Years | 2017–2025 |
 | Keyword method | KeyBERT (`all-MiniLM-L6-v2`), MMR diversity=0.7, n-gram (1,3), top-12 terms |
 | Source | Official proceedings (ACL Anthology, CVF, PMLR, OpenReview, NeurIPS.cc) |
-| Zenodo archive | [doi:10.5281/zenodo.20509627](https://doi.org/10.5281/zenodo.20509627) |
+| Zenodo archive | [doi:10.5281/zenodo.20635335](https://doi.org/10.5281/zenodo.20635335) |
 
 **Venue breakdown (2025):**
 
@@ -173,7 +173,7 @@ pip install -r requirements-full.txt
 Download `merged_papers_keywords_keybert.xlsx` from the Zenodo archive:
 
 ```
-https://doi.org/10.5281/zenodo.20509627
+https://doi.org/10.5281/zenodo.20635335
 ```
 
 Place it in the project root. This is the fully merged and KeyBERT-annotated dataset (80,814 main-track papers).
@@ -251,8 +251,8 @@ Dataset (Zenodo):
   title     = {AI Conference Papers Dataset (ACL, CVPR, ICLR, ICML, NeurIPS) 2017--2025},
   year      = {2025},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.20509627},
-  url       = {https://doi.org/10.5281/zenodo.20509627}
+  doi       = {10.5281/zenodo.20635335},
+  url       = {https://doi.org/10.5281/zenodo.20635335}
 }
 ```
 
