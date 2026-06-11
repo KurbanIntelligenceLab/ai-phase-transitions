@@ -10,11 +10,11 @@
 
 ## Overview
 
-This repository contains all code, scripts, and figures supporting the paper. The project tracks **84,091 accepted papers** from five major AI/ML conferences (ACL, CVPR, ICLR, ICML, NeurIPS) over 2017–2025, extracts research topics via KeyBERT, and formalises and validates a **pre-explosion signature** that forecasts which topics will undergo a rapid phase transition (3× growth) within three years.
+This repository contains all code and figures supporting the paper. The project tracks **80,814 accepted main-track papers** from five major AI/ML conferences (ACL, CVPR, ICLR, ICML, NeurIPS) over 2017–2025, extracts research topics via KeyBERT, and formalises and validates a **pre-explosion signature** that forecasts which topics will undergo a rapid phase transition (3× growth) within three years.
 
 ### Key findings
 
-- AI research volume grew at **30.4% CAGR** (2,445 → 20,459 papers, 2017–2025).
+- AI research volume grew at **29.9% CAGR** (2,445 → 19,800 papers, 2017–2025).
 - Large Language Models (LLMs) and diffusion models underwent the most dramatic topical phase transitions post-2022.
 - A four-criterion early-warning signature achieves **63% recall** at **27% precision** (vs. 13.5% base rate) in a strict out-of-sample backtest on 223 topics.
 - The signature is evaluated at a fixed freeze date (2022) with no peeking at outcome years (2023–2025).
@@ -36,29 +36,19 @@ paper/
 │
 ├── ── Merging & keyword extraction ──
 ├── merge_papers.py                   # Merge per-venue Excel files into one dataset
-├── merge_and_lda.py                  # Merge + LDA topic modelling (early pipeline)
 ├── create_keywords_from_titles.py    # Simple bag-of-words keywords from titles
 ├── create_keywords_vocabulary_match.py # Controlled-vocabulary keyword matching
 ├── create_keywords_keybert_title.py  # KeyBERT keyword extraction from titles
-├── run_keybert_on_lda.py             # Run KeyBERT on LDA-assigned text chunks
 │
 ├── ── Analysis & figures ──
 ├── topic_analysis.py                 # Master figure script: counts, heatmaps,
 │                                     #   LLM/diffusion/RL trends, word clouds
-├── create_paper_figures.py           # Additional paper-specific figures
-├── rebuild_figures.py                # Regenerate all figures from exact data values
-│                                     #   (Figs 05, 06, 07, 12, 14, 15 → v5 folder)
-├── analyze_keywords.py               # Keyword frequency and distribution summaries
+├── rebuild_figures.py                # Regenerate paper figures from exact data values
 ├── compute_popularity.py             # Popularity scoring (Xiong et al. 2019 method)
-├── sample_check.py                   # Spot-check random rows in the dataset
-├── inspect_excels.py                 # Quick inspection of Excel file schemas
-├── verify_output.py                  # Verify figure output completeness
 │
 ├── ── Validation ──
 ├── backtest_signature.py             # Out-of-sample backtest of the pre-explosion
 │                                     #   signature (Section 5 of the paper)
-├── check_conflicts.py                # Trace and resolve data/figure conflicts
-├── check_qss.py                      # QSS submission compliance checker
 │
 ├── ── Environment ──
 ├── environment.yml                   # Conda environment specification
@@ -66,25 +56,22 @@ paper/
 ├── requirements-full.txt             # pip dependencies (full: KeyBERT + PyTorch)
 │
 ├── ── Figures (final, committed) ──
-├── topic_analysis_figures_keybert/  # All figures used in the paper (PDF + PNG)
-│   ├── 05_top10_topics_per_conference.{png,pdf}
-│   ├── 06_heatmap_topics_over_years.{png,pdf}
-│   ├── 07_line_top5_topics_over_years.{png,pdf}
-│   ├── 10_exponential_growth_total_and_stacked.{png,pdf}
-│   ├── 11_top25_per_venue_*.{png,pdf}     (one per venue)
-│   ├── 12_llm_revolution_over_years.{png,pdf}
-│   ├── 13_diffusion_rise_over_years.{png,pdf}
-│   ├── 14_diffusion_rise_over_years.{png,pdf}
-│   ├── 15_rl_over_years_all.{png,pdf}
-│   └── verified_topic_counts_by_year.csv  (audit trail)
+├── topic_analysis_figures_keybert/   # All figures used in the paper (PDF + PNG)
+│   ├── 01_papers_per_year_by_conference.png
+│   ├── 05_top10_topics_per_conference.png
+│   ├── 06_heatmap_topics_over_years.png
+│   ├── 07_line_top5_topics_over_years.png
+│   ├── 09_line_top25_topics_years_*.{png,pdf}  (one per venue)
+│   ├── 10_exponential_growth_total_and_stacked.png
+│   ├── 12_llm_revolution_over_years.png
+│   ├── 14_diffusion_rise_over_years.png
+│   ├── 15_rl_over_years_all.png
+│   └── summary_papers_per_year_per_conference.csv
 │
-│
-├── architecture.png                  # System architecture diagram (Fig. in paper)
-│
-└── PROMPT_conference_review_paper.md # Prompt template for AI-assisted drafting
+└── architecture.png                  # System architecture diagram
 ```
 
-> **Data files** (`.xlsx`, `.csv`) are excluded from Git via `.gitignore` due to size (total ~500 MB). The canonical dataset is archived at Zenodo: [doi:10.5281/zenodo.20509627](https://doi.org/10.5281/zenodo.20509627).
+> **Data files** (`.xlsx`, `.csv`) are excluded from Git due to size. The canonical dataset is archived at Zenodo: [doi:10.5281/zenodo.20509627](https://doi.org/10.5281/zenodo.20509627).
 
 ---
 
@@ -92,7 +79,7 @@ paper/
 
 | Attribute | Value |
 |---|---|
-| Total papers | **84,091** |
+| Total papers | **80,814** (main-track only, workshops excluded) |
 | Venues | ACL, CVPR, ICLR, ICML, NeurIPS |
 | Years | 2017–2025 |
 | Keyword method | KeyBERT (`all-MiniLM-L6-v2`), MMR diversity=0.7, n-gram (1,3), top-12 terms |
@@ -101,13 +88,13 @@ paper/
 
 **Venue breakdown (2025):**
 
-| Venue | Papers (2025) | Share |
+| Venue | Papers (2025) | Share (all years) |
 |---|---|---|
-| NeurIPS | 5,486 | 26.8% |
-| CVPR | 4,730 | 23.1% |
-| ACL | 4,297 | 21.0% |
-| ICML | 3,215 | 15.7% |
-| ICLR | 2,731 | 13.3% |
+| NeurIPS | 5,286 | 27.9% |
+| ACL | 4,547 | 21.8% |
+| ICLR | 3,703 | 13.9% |
+| ICML | 3,402 | 16.3% |
+| CVPR | 2,862 | 20.0% |
 
 ---
 
@@ -189,7 +176,7 @@ Download `merged_papers_keywords_keybert.xlsx` from the Zenodo archive:
 https://doi.org/10.5281/zenodo.20509627
 ```
 
-Place it in the project root (`paper/`). This is the fully merged and KeyBERT-annotated dataset (84,091 rows).
+Place it in the project root. This is the fully merged and KeyBERT-annotated dataset (80,814 main-track papers).
 
 If you want to rebuild from raw sources instead, follow the pipeline below.
 
@@ -200,7 +187,7 @@ If you want to rebuild from raw sources instead, follow the pipeline below.
 python fetch_icml_pmlr_only.py
 python fetch_cvpr_2019_2020.py
 python fetch_neurips_2017_2020.py
-# For ICLR 2017 specifically, papers were scraped from OpenReview
+# For ICLR 2017, papers were scraped from OpenReview
 # (https://openreview.net/group?id=ICLR.cc/2017/conference)
 
 # Merge into one workbook
@@ -221,7 +208,7 @@ python create_keywords_keybert_title.py
 python rebuild_figures.py
 ```
 
-Outputs go to `topic_analysis_figures_keybert_v5/`. The script reads directly from `merged_papers_keywords_keybert.xlsx` and saves both PNG (300 DPI) and PDF (vector) for each figure.
+Outputs go to `topic_analysis_figures_keybert/`. The script reads directly from `merged_papers_keywords_keybert.xlsx` and saves both PNG (300 DPI) and PDF (vector) for each figure.
 
 For all figures including word clouds and supplementary charts:
 
