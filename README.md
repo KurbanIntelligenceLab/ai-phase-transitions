@@ -2,6 +2,7 @@
 ### Large-Scale Evidence and an Early-Warning Signature for Emerging Topics
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20635335.svg)](https://doi.org/10.5281/zenodo.20635335)
+[![arXiv](https://img.shields.io/badge/arXiv-2606.12828-b31b1b.svg)](https://arxiv.org/abs/2606.12828)
 
 > **Paper submitted to:** *Quantitative Science Studies (QSS)*  
 > **Title:** "Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics"
@@ -233,23 +234,24 @@ Reads `topic_year_venue_counts.csv` (also on Zenodo). Prints the confusion matri
 If you use this code, dataset, or methodology in published work, please cite:
 
 ```bibtex
-@article{khanbayov2025topical,
-  title   = {Topical Phase Transitions in Artificial Intelligence Research:
-             Large-Scale Evidence and an Early-Warning Signature for Emerging Topics},
-  author  = {Khanbayov, Rasul and Kurban, Hasan},
-  journal = {Quantitative Science Studies},
-  year    = {2025},
-  note    = {Submitted}
+@misc{khanbayov2026topics,
+  doi = {10.5281/ZENODO.20635334},
+  url = {https://zenodo.org/doi/10.5281/zenodo.20635334},
+  author = {Khanbayov, Rasul and KURBAN, HASAN},
+  title = {Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics},
+  publisher = {Zenodo},
+  year = {2026}, 
+  copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
 
 Dataset (Zenodo):
 
 ```bibtex
-@misc{khanbayov2025dataset,
+@misc{khanbayov2026topics,
   author    = {Khanbayov, Rasul and Kurban, Hasan},
-  title     = {AI Conference Papers Dataset (ACL, CVPR, ICLR, ICML, NeurIPS) 2017--2025},
-  year      = {2025},
+  title     = {Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics},
+  year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.20635335},
   url       = {https://doi.org/10.5281/zenodo.20635335}
