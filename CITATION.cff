@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics"
+authors:
+  - family-names: Khanbayov
+    given-names: Rasul
+    orcid: "https://orcid.org/0009-0005-9493-3390"
+    affiliation: "Hamad Bin Khalifa University"
+  - family-names: Kurban
+    given-names: Hasan
+    orcid: "https://orcid.org/0000-0003-3142-2866"
+    affiliation: "Hamad Bin Khalifa University"
+repository-code: "https://github.com/KurbanIntelligenceLab/ai-phase-transitions"
+doi: "10.5281/zenodo.20635334"
+license: MIT
+date-released: "2026-11-06"
+keywords:
+  - topical phase transitions
+  - early-warning signature
+  - research trend forecasting
+  - artificial intelligence
+  - bibliometrics
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20635334"
+    description: "Zenodo archive (concept DOI, always the latest version)"
+  - type: other
+    value: "arXiv:2606.12828"
+    description: "Preprint"
